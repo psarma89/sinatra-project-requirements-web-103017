@@ -11,7 +11,7 @@
   - Forms, Forms, Forms
 
 #### Requirements:
-####Your application should have the following
+#### Your application should have the following
   - At least 3 models (Not including a Join Table eg Songs, Genres, SongGenres can't count as 3 models)
   - At least 2 of the models should be related in some way
   - Use nested forms in your application
