@@ -1,0 +1,21 @@
+User.create(name: "Priyam Sarma")
+User.create(name: "Harsh Kumar")
+User.create(name: "Ravendra Persaud")
+User.create(name: "Kris Porzingis")
+User.create(name: "Eli Manning")
+
+Location.create(street: "Columbus Circle", neighborhood: "Midtown West", zipcode: 10019)
+Location.create(street: "Falafal Square", neighborhood: "Long Island City", zipcode: 11101)
+Location.create(street: "Hipster Central", neighborhood: "Dumbo", zipcode: 11201)
+
+FoodTruck.create(name: "Jammin Jerk Chicken", category: "Carribean, Jerk Chicken, Island flavor",location_id: 1)
+FoodTruck.create(name: "Gordos", category: "Doughnuts, sweet",location_id: 1)
+FoodTruck.create(name: "Plucking Pho", category: "Asian, Vietnamese, noodles",location_id: 2)
+FoodTruck.create(name: "Sweetgrass", category: "Vegan healthy faire",location_id: 3)
+
+UserTruck.create(user_id: 1, food_truck_id: 2)
+UserTruck.create(user_id: 2, food_truck_id: 1)
+UserTruck.create(user_id: 1, food_truck_id: 1)
+UserTruck.create(user_id: 3, food_truck_id: 3)
+UserTruck.create(user_id: 4, food_truck_id: 4)
+UserTruck.create(user_id: 4, food_truck_id: 1)
