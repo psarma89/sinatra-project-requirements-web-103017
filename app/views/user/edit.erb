@@ -1,0 +1,18 @@
+<h1>Edit User and thier favorite trucks</h1>
+
+<form class="" action="/users/<%=@user.slug%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <p>Name: <input type="text" name="user[name]" value=<%= "#{@user.name}" %>></p>
+
+  <h3>Select Food Trucks</h3>
+  <% @trucks.each do |truck|%>
+    <p> <input type="checkbox" name="user[trucks][]" value= <%= "#{truck.id}" %> <%='checked' if @user.food_trucks.include?(truck) %>> <%= "#{truck.name}"%> </p>
+
+  <% end%>
+
+  <input type="submit" name="" value="Update">
+
+</form>
+<br>
+<p><a href="/trucks/new">Submit a new food truck</a></p>

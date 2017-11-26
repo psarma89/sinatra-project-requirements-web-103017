@@ -1,0 +1,18 @@
+<form class="" action="/trucks/<%= @truck.slug%>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" name="" value="delete">
+</form>
+
+<h2><%= "#{@truck.name} Food Truck"%></h2>
+
+<p>Street: <%= "#{@truck.location.street}"%></p>
+<p>Neighborhood: <%= "#{@truck.location.neighborhood}"%></p>
+<p>Zipcode: <%= "#{@truck.location.zipcode}"%></p>
+
+<h3><%= "#{@truck.name} Fans"%></h3>
+
+<% @truck.users.each do |user| %>
+  <ul>
+    <li> <%= "#{user.name}"%> </li>
+  </ul>
+<% end %>

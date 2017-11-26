@@ -1,0 +1,21 @@
+<h1>Edit Food Truck</h1>
+
+<form class="" action="/trucks/<%= @truck.slug %>/edit" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <p>Truck Name: <input type="text" name="truck[name]" value= <%= "#{@truck.name}" %> ></p>
+  <p>Food Type: <input type="text" name="truck[category]" value= <%= "#{@truck.category}" %> ></p>
+
+  <h3>Update Location</h3>
+  <p>Street Address: <input type="text" name="truck[location][street]" value= <%= "#{@truck.location.street}" %> ></p>
+  <p>Neighborhood: <input type="text" name="truck[location][neighborhood]" value= <%= "#{@truck.location.neighborhood}" %> ></p>
+  <p>Zipcode: <input type="text" name="truck[location][zipcode]" value= <%= "#{@truck.location.zipcode}" %> ></p>
+
+  <h3>Select Existing Location (pick one)</h3>
+  <% @locations.each do |location|%>
+    <p> <input type="checkbox" name="truck[locations][]" value= <%= "#{location.id}" %>> <%= "#{location.street}, #{location.neighborhood}, #{location.zipcode}"%></p>
+  <% end%>
+
+  <input type="submit" name="" value="Update">
+
+</form>

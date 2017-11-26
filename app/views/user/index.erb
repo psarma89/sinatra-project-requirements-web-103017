@@ -1,0 +1,5 @@
+<h1>All Fans of Food Trucks</h1>
+
+<% @users.each do |user| %>
+  <p><a href= <%="/users/#{user.slug}" %>> <%= user.name%> </a></p>
+<% end %>

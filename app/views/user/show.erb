@@ -1,0 +1,8 @@
+<h2><%= "#{@user.name}'s Favorite Food Trucks"%></h2>
+<% @user.food_trucks.each do |truck|%>
+  <form action="/trucks/<%= truck.slug %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <a href=<%="/trucks/#{truck.slug}" %>> <%= "#{truck.name}"%> </a> &nbsp; &nbsp;
+    <input type="submit" value="delete">
+  </form>
+<% end %>

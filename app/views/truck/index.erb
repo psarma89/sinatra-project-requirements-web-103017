@@ -1,0 +1,5 @@
+<h1>All Food Trucks</h1>
+
+<% @trucks.each do |truck| %>
+  <p><a href= <%="/trucks/#{truck.slug}" %>> <%= truck.name%> </a></p>
+<% end %>

@@ -1,0 +1,17 @@
+<h1>Create a new User and choose you're favorite trucks</h1>
+
+<form class="" action="/users" method="post">
+
+  <p>Name: <input type="text" name="user[name]" value=""></p>
+
+  <h3>Select Food Trucks</h3>
+  <% @trucks.each do |truck|%>
+    <p> <input type="checkbox" name="user[trucks][]" value= <%= "#{truck.id}" %>> <%= "#{truck.name}"%></p>
+
+  <% end%>
+
+  <input type="submit" name="" value="Create">
+
+</form>
+<br>
+<p><a href="/trucks/new">Submit a new food truck</a></p>

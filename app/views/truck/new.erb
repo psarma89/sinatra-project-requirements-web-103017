@@ -1,0 +1,20 @@
+<h1>Create a new Food Truck</h1>
+
+<form class="" action="/trucks" method="post">
+
+  <p>Truck Name: <input type="text" name="truck[name]" value=""></p>
+  <p>Food Type: <input type="text" name="truck[category]" value=""></p>
+
+  <h3>Create a new Location</h3>
+  <p>Street Address: <input type="text" name="truck[location][street]" value=""></p>
+  <p>Neighborhood: <input type="text" name="truck[location][neighborhood]" value=""></p>
+  <p>Zipcode: <input type="text" name="truck[location][zipcode]" value=""></p>
+
+  <h3>Select Existing Location (pick one)</h3>
+  <% @locations.each do |location|%>
+    <p> <input type="checkbox" name="truck[locations][]" value= <%= "#{location.id}" %>> <%= "#{location.street}, #{location.neighborhood}, #{location.zipcode}"%></p>
+  <% end%>
+
+  <input type="submit" name="" value="Create">
+
+</form>
