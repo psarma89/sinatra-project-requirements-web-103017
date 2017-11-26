@@ -1,0 +1,7 @@
+<h1><%= "#{@location.neighborhood}"%>'s Food Trucks</h1>
+
+<% @location.food_trucks.each do |truck| %>
+  <ul>
+    <li> <a href="/trucks/<%= truck.slug %>"> <%= "#{truck.name}"%> </a> </li>
+  </ul>
+<% end %>

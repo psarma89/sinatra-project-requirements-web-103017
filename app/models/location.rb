@@ -3,7 +3,7 @@ class Location < ActiveRecord::Base
 
   def slug
     neighborhood_array = self.neighborhood.split(" ")
-    neighborhood_array.map{|name| neighborhood.downcase}.join("-")
+    neighborhood_array.map{|name| name.downcase}.join("-")
   end
 
   def self.find_by_slug(slug)
