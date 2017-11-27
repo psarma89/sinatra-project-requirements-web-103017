@@ -12,6 +12,7 @@ class UserController < ApplicationController
 
   get '/users/:slug' do
     @user = User.find_by_slug(params[:slug])
+    @trucks = FoodTruck.all
     erb :"/user/show"
   end
 
@@ -53,10 +54,19 @@ class UserController < ApplicationController
 
   end
 
-  # delete '/trucks/:slug' do
-  #   # binding.pry
-  #   truck = FoodTruck.find_by_slug(params[:slug])
-  #
-  # end
+  delete '/users/:user_id/:truck_id' do
+    # binding.pry
+    user = User.find(params[:user_id].to_i)
+    user.food_trucks.delete(params[:truck_id].to_i)
+    user.save
+    redirect to "/users/#{user.slug}"
+  end
 
+  post '/users/:user_id/:truck_id' do
+    user = User.find(params[:user_id].to_i)
+    truck = FoodTruck.find(params[:truck_id].to_i)
+    user.food_trucks << truck
+    user.save
+    redirect to "/users/#{user.slug}"
+  end
 end

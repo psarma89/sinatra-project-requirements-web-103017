@@ -1,8 +1,18 @@
 <h2><%= "#{@user.name}'s Favorite Food Trucks"%></h2>
 <% @user.food_trucks.each do |truck|%>
-  <form action="/trucks/<%= truck.slug %>" method="post">
+  <form action="/users/<%= @user.id %>/<%= truck.id %>" method="post">
     <input id="hidden" type="hidden" name="_method" value="delete">
-    <a href=<%="/trucks/#{truck.slug}" %>> <%= "#{truck.name}"%> </a> &nbsp; &nbsp;
+    <a href=<%="/trucks/#{truck.slug}" %>> <%= truck.name%> </a> &nbsp; &nbsp;
     <input type="submit" value="delete">
+  </form>
+<% end %>
+
+<h2>Add from existing food trucks</h2>
+<% @trucks.each do |truck|%>
+  <form action="/users/<%= @user.id %>/<%= truck.id %>" method="post">
+    <% if !@user.food_trucks.include?(truck) %>
+      <a href=<%="/trucks/#{truck.slug}" %>> <%= truck.name%> </a> &nbsp; &nbsp;
+      <input type="submit" value="add">
+    <% end %>
   </form>
 <% end %>
